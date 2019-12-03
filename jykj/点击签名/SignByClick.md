@@ -1,7 +1,7 @@
 >一些alter或者console代码，可根据自己的实际情况删减。新建一个空白的html文件，将一下代码拷贝到文件内，即可运行。前提需安装好对应的驱动或服务。
 
 ```html
-
+// html标签
 <input type="button" value="电子签名(任意位置)" onclick="SignByClick('D:\\ca\\test.pdf', '0,1,450,500|1,1,450,500',2)" />
 ```
 
