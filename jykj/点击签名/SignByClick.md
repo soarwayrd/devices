@@ -7,6 +7,22 @@
 
 ```javascript
 <script>
+    // 按需拷贝,将Base64保存到指定路径，生产环境上没什么用
+    function Base64ToFile(Base64, Filename) {
+            if (getBrowserName() == "IE") {
+                GWQ.Base64ToFile(Base64, Filename);
+            }
+            else {
+                let socket = CreateSocket(function (event) { });
+                let file = {};
+                file.type = 16;
+                file.Base64 = Base64;
+                file.Filename = Filename;
+                socket.onopen = function () {
+                    socket.send(JSON.stringify(file));
+                }
+            }
+        }
     // 必须拷贝,且一个页面只需拷贝一次
     function getBrowserName() {
             let userAgent = navigator.userAgent;
@@ -23,6 +39,7 @@
             else
                 return "IE";
         }
+
     // 必须拷贝,且一个页面只需拷贝一次
     function CreateSocket(fun) {
             if (getBrowserName() != "IE") {
@@ -37,23 +54,8 @@
                 return webSocket;
             }
         }
-    // 将Base64保存到指定路径，生产环境上没什么用
-    function Base64ToFile(Base64, Filename) {
-            if (getBrowserName() == "IE") {
-                GWQ.Base64ToFile(Base64, Filename);
-            }
-            else {
-                let socket = CreateSocket(function (event) { });
-                let file = {};
-                file.type = 16;
-                file.Base64 = Base64;
-                file.Filename = Filename;
-                socket.onopen = function () {
-                    socket.send(JSON.stringify(file));
-                }
-            }
-        }
-    // 电子签名(任意位置)
+    
+    // 必须拷贝,电子签名(任意位置)
     function SignByClick(pdfPath, targetLocation, signOption) {
             GWQ_SetSignOption(signOption);
             if (getBrowserName() == "IE") {
@@ -85,7 +87,7 @@
                 }
             }
         }
-    // 设置签名选项 0 只签名; 1 只指纹; 2 签名+指纹
+    // 必须拷贝,设置签名选项 0 只签名; 1 只指纹; 2 签名+指纹
     function GWQ_SetSignOption(signOption) {
             if (getBrowserName() == "IE") {
                 GWQ.GWQ_SetSignOption(signOption);
@@ -100,7 +102,7 @@
                 }
             }
         }
-    // 电子签名(任意位置) 回调
+    // 必须拷贝,电子签名(任意位置) 回调
     function OnAfterGWQ_StartSign(ErrorCode, SignPdfBase64, SignNameBase64, FingerPrintBase64, MixBase64) {
             if (ErrorCode == 0) {
                 GWQ.Base64ToFile(SignPdfBase64, "d:\\ca\\sp_ie.pdf");
