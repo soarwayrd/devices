@@ -5,7 +5,7 @@
 <input type="button" value="电子签名(任意位置)" onclick="SignByClick('D:\\ca\\test.pdf', '0,1,450,500|1,1,450,500',2)" />
 ```
 
-```javascript
+```html
 <script>
     // 按需拷贝,将Base64保存到指定路径，生产环境上没什么用
     function Base64ToFile(Base64, Filename) {
