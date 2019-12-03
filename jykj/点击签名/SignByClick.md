@@ -1,3 +1,5 @@
+>一些alter或者console代码，可根据自己的实际情况删减
+
 ```html
 <input type="button" value="电子签名(任意位置)" onclick="SignByClick('D:\\ca\\test.pdf', '0,1,450,500|1,1,450,500',2)" />
 ```
