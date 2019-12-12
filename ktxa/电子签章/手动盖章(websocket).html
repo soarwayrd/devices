@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Web SocketÇ©ÕÂ</title>
+<title>Web Socketç­¾ç« </title>
 <Script type="text/javascript">
 
 
@@ -13,7 +13,7 @@ function dealWithResponseMessage(respMessage)
 //	console.log("respMessage = " + respMessage);
 	listform.textOut.value = respMessage;
 
-	// ÏìÓ¦ÏûÏ¢
+	// å“åº”æ¶ˆæ¯
 	var resp = JSON.parse(respMessage);
 	var str = resp.PluginResponse.split(",");
 	if(str[0].split("=")[1] > 0){
@@ -27,7 +27,7 @@ function dealWithResponseMessage(respMessage)
 	var socket = null;
 	function connect() {
 		if (socket != null) {
-			alert("ÒÑÁ¬½Ó£¡");
+			alert("å·²è¿æ¥ï¼");
 			return true;
 		}
 		
@@ -35,7 +35,7 @@ function dealWithResponseMessage(respMessage)
 		socket = new WebSocket(host);
 		try {
 			socket.onopen = function(msg) {
-				//alert("Á¬½Ó³É¹¦£¡");
+				//alert("è¿æ¥æˆåŠŸï¼");
 				//onSeal();
 			};
 
@@ -52,7 +52,7 @@ function dealWithResponseMessage(respMessage)
 					var HandSignCount = parseInt(str[5].split("=")[1]);
 					var MaxPage = parseInt(str[6].split("=")[1]);
 					var Versions = parseInt(str[7].split("=")[1]);
-					alert("×Ü¸öÊı£º"+AllSignaCount+"¡£ÆäÖĞÓ¡ÕÂ¸öÊı£º"+SealCount+"£¬Ç©Åú¸öÊı£º"+HandSignCount+"£¬×ÜÒ³Êı£º"+MaxPage+"£¬°æ±¾ºÅ£º"+Versions);
+					alert("æ€»ä¸ªæ•°ï¼š"+AllSignaCount+"ã€‚å…¶ä¸­å°ç« ä¸ªæ•°ï¼š"+SealCount+"ï¼Œç­¾æ‰¹ä¸ªæ•°ï¼š"+HandSignCount+"ï¼Œæ€»é¡µæ•°ï¼š"+MaxPage+"ï¼Œç‰ˆæœ¬å·ï¼š"+Versions);
 					if (str[0].split("=")[1] > 0) {
 						var total = parseInt(str[1].split("=")[1]);
 						var cur = parseInt(str[2].split("=")[1]);
@@ -67,7 +67,7 @@ function dealWithResponseMessage(respMessage)
 						}
 					}
 				} else {
-					alert("·ÇÎÄ±¾ÏûÏ¢");
+					alert("éæ–‡æœ¬æ¶ˆæ¯");
 				}
 			};
 
@@ -102,7 +102,7 @@ function dealWithResponseMessage(respMessage)
 		}
 	};
 
-	//ÊÖ¶¯¸ÇÕÂ
+	//æ‰‹åŠ¨ç›–ç« 
 	function onSeal() {
 
 		//console.log("onSeal in testktsedocws.html");
@@ -141,14 +141,14 @@ function dealWithResponseMessage(respMessage)
 <table width="720" border="0" cellspacing="0" cellpadding="0" align="center">
   <form name="listform" method="post" action="test.jsp">
     <tr> 
-      <td height="30" valign="middle" width="220">PDFÎÄ¼şÂ·¾¶</td>
+      <td height="30" valign="middle" width="220">PDFæ–‡ä»¶è·¯å¾„</td>
       <td height="23" width="500" align="left"> 
         <textarea name="textInFile"  cols="90" rows="1">D:\1.pdf</textarea>
         <input type="hidden" name="ff" id="ff" />
       </td>
     </tr>
     <tr> 
-      <td height="30" valign="middle" width="120">Êä³ö</td>
+      <td height="30" valign="middle" width="120">è¾“å‡º</td>
       <td height="23" width="600" align="left"> 
         <textarea name="textOut"  cols="90" rows="10"></textarea>
       </td>
@@ -157,7 +157,7 @@ function dealWithResponseMessage(respMessage)
       <td height="30" valign="middle" width="120">&nbsp;</td>
       <td height="23" width="600" align="left"> 
 		<div id="response_div_id"></div>
-        <input type="button" name="Button1" value="ÊÖ¶¯¸ÇÕÂ" class="hand" onClick="onSeal()">
+        <input type="button" name="Button1" value="æ‰‹åŠ¨ç›–ç« " class="hand" onClick="onSeal()">
       </td>
     </tr>
   </form>

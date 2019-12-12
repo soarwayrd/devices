@@ -7,7 +7,7 @@
 [下载凯特信安手工盖章开发文档](./SecSeal签章控件集成开发手册.doc)
 
 ```javascript
- // 必须拷贝
+ // 必须拷贝，获取凯特Ocx控件生成的Edc base64串
  function ktGetEdcBase64() {
      //edc文件输出方式,0默认,1签名,2加密
      control.SetDocSignType(1);
@@ -23,11 +23,11 @@
          alert("请先盖章后，在点输出！");
      }
  }
- // 必须拷贝
+ // 必须拷贝，凯特Ocx控件加载pdf文档
  function ktLoadFile(filePath) {
      control.LoadPDFDocument(filePath);
  }
- // 必须拷贝,且一个页面只需拷贝一次
+ // 必须拷贝，凯特Ocx控件及WebSocket下调用盖章的方法
  function ktSeal(filePath) {
      if (getBrowserName() != "IE") {
          let socket = createSocket(function (event) {
@@ -64,7 +64,7 @@
          }
      }
  }
- // 必须拷贝,且一个页面只需拷贝一次
+ // 必须拷贝,判断当前浏览器
  function getBrowserName() {
      let userAgent = navigator.userAgent;
      if (userAgent.indexOf("Opera") > -1)
@@ -80,7 +80,7 @@
      else
          return "IE";
  }
- // 必须拷贝,且一个页面只需拷贝一次
+ // 必须拷贝,创建一个WebSocket主要用于非IE系列浏览器
  function createSocket(fun) {
      if (getBrowserName() != "IE") {
          var webSocket = new WebSocket("ws://127.0.0.1:31213/");

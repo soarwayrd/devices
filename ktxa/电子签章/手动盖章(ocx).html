@@ -10,71 +10,71 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <html XMLNS:CUSTOM>
 
-  <script language="JavaScript" for="control" event="DealStampEnd">      //²¶×½¸ÇÕÂ³É¹¦µÄÊÂ¼ş
-   	alert("¸ÇÕÂ³É¹¦£¡");
+  <script language="JavaScript" for="control" event="DealStampEnd">      //æ•æ‰ç›–ç« æˆåŠŸçš„äº‹ä»¶
+   	alert("ç›–ç« æˆåŠŸï¼");
   </script>
 
   <script language="JavaScript" for="control" event="PdfClick(page,x,y)">
-	//alert('X×ø±ê£º'+x+'£¬Y×ø±ê£º'+y+'£¬Ò³Ãæ£º'+page);
+	//alert('Xåæ ‡ï¼š'+x+'ï¼ŒYåæ ‡ï¼š'+y+'ï¼Œé¡µé¢ï¼š'+page);
   </script>
 
   <script language="javascript">
 
    //window.onload=LoadPDFDocument;
 
-	//¸ÇÕÂ£»
+	//ç›–ç« ï¼›
     function DealStamp(){
      var bool=control.IsDealStamp();
      if(bool){
-	   //control.SetSealPosOnBaseMap(0);    //ÉèÖÃÓ¡ÕÂ¸ÇÔÚÎÄµµÏÂ·½£¬0ÎªÓ¡ÕÂÔÚÏÂ·½£¬1ÎªÓ¡ÕÂÔÚÉÏ·½
-       //control.SetAddDate(3);         //ÉèÖÃÔÚ¸ÇÕÂºóÃæÔö¼ÓÈÕÆÚ
-	   //var a = control.SetTssStartupIpPort(true, '218.66.59.250', 80);   //ÉèÖÃ¸ÇÕÂÊ±ÆôÓÃÊ±¼ä´Á·şÎñ£¬tureÎªÆôÓÃ£¬falseÎª¹Ø±Õ
+	   //control.SetSealPosOnBaseMap(0);    //è®¾ç½®å°ç« ç›–åœ¨æ–‡æ¡£ä¸‹æ–¹ï¼Œ0ä¸ºå°ç« åœ¨ä¸‹æ–¹ï¼Œ1ä¸ºå°ç« åœ¨ä¸Šæ–¹
+       //control.SetAddDate(3);         //è®¾ç½®åœ¨ç›–ç« åé¢å¢åŠ æ—¥æœŸ
+	   //var a = control.SetTssStartupIpPort(true, '218.66.59.250', 80);   //è®¾ç½®ç›–ç« æ—¶å¯ç”¨æ—¶é—´æˆ³æœåŠ¡ï¼Œtureä¸ºå¯ç”¨ï¼Œfalseä¸ºå…³é—­
 	   //alert(a);
 	   control.DealStamp();
      }
      else{
-       alert("²»ÄÜ½øĞĞ¸ÇÕÂ,ÇëÏÈµ¼ÈëPDFÎÄ¼ş£¡");
+       alert("ä¸èƒ½è¿›è¡Œç›–ç« ,è¯·å…ˆå¯¼å…¥PDFæ–‡ä»¶ï¼");
      }
     }
 
-	//Ö¸¶¨Î»ÖÃ¸ÇÕÂ£»
+	//æŒ‡å®šä½ç½®ç›–ç« ï¼›
     function DealStamp2(){
      var bool=control.IsDealStamp();
      if(bool){         
-	   var a = control.DealStampA("nPage=1|nX=187|nY=369|nM=0");     //ÔÚÖ¸¶¨Î»ÖÃ¸ÇÕÂ£¬nPageÎª000Ê±£¬±íÊ¾ÔÚËùÓĞÒ³ÃæÉÏµÄÍ¬Ò»Î»ÖÃ¸ÇÕÂ 
+	   var a = control.DealStampA("nPage=1|nX=187|nY=369|nM=0");     //åœ¨æŒ‡å®šä½ç½®ç›–ç« ï¼ŒnPageä¸º000æ—¶ï¼Œè¡¨ç¤ºåœ¨æ‰€æœ‰é¡µé¢ä¸Šçš„åŒä¸€ä½ç½®ç›–ç«  
 	   alert(a);
 	 }
      else{
-       alert("²»ÄÜ½øĞĞ¸ÇÕÂ,ÇëÏÈµ¼ÈëPDFÎÄ¼ş£¡");
+       alert("ä¸èƒ½è¿›è¡Œç›–ç« ,è¯·å…ˆå¯¼å…¥PDFæ–‡ä»¶ï¼");
      }
     }
 
-    //ÅúÁ¿¸ÇÕÂ£»
+    //æ‰¹é‡ç›–ç« ï¼›
     function DealLotStamp(){
       var bool=control.IsDealLotStamp();
       if(bool){ 
         control.DealLotStamp();
       }
      else{
-       alert("²»ÄÜ½øĞĞÅúÁ¿¸ÇÕÂ,ÇëÏÈµ¼ÈëPDFÎÄ¼ş£¡");
+       alert("ä¸èƒ½è¿›è¡Œæ‰¹é‡ç›–ç« ,è¯·å…ˆå¯¼å…¥PDFæ–‡ä»¶ï¼");
      }
     }
 
-    //Ç©Åú£»
+    //ç­¾æ‰¹ï¼›
     function DealHandSign(){ 
        var bool=control.IsDealHandSign();
        if(bool){ 
          control.DealHandSign();
        }
         else{
-          alert("²»ÄÜ½øĞĞÇ©Åú,ÇëÏÈµ¼ÈëPDFÎÄ¼ş£¡");
+          alert("ä¸èƒ½è¿›è¡Œç­¾æ‰¹,è¯·å…ˆå¯¼å…¥PDFæ–‡ä»¶ï¼");
        }
     }
 
-    //³·Ïú£»
+    //æ’¤é”€ï¼›
     function DealUnStamp(){ 
 	  //control.DealUnStamp();
-      //control.DealUnStpFgpSign();    //ÓÃÓÚDealSmpFgpSign¸Ã·½·¨µÄ³·Ïû
+      //control.DealUnStpFgpSign();    //ç”¨äºDealSmpFgpSignè¯¥æ–¹æ³•çš„æ’¤æ¶ˆ
 	  //control.PDFCommand(13);
 	  
 	  var bool=control.IsDealUnStamp();
@@ -82,198 +82,198 @@
         control.DealUnStamp();
 		}
         else{
-          alert("ÇëÏÈ½øĞĞ¸ÇÕÂ²Ù×÷£¡");
+          alert("è¯·å…ˆè¿›è¡Œç›–ç« æ“ä½œï¼");
         }
 	  
       }
 
-    //³­ËÍ£»
+    //æŠ„é€ï¼›
     function DealFileExportBlack(){
       var bool=control.IsDealFileExportBlack();
       if(bool){
         control.DealFileExportBlack("c:/test.bdc");
        }
       else{
-         alert("Çë¼ÓÔØEDCÎÄ¼ş£¡");
+         alert("è¯·åŠ è½½EDCæ–‡ä»¶ï¼");
         }
       }
 
-    //´òÓ¡£»
+    //æ‰“å°ï¼›
     function DealFilePrint(){
        var bool=control.IsDealFilePrint();
        if(bool){
-        //control.DealFilePrint("false");    //ÉèÖÃÄ¬ÈÏÎªÖ½ÕÅ´óĞ¡´òÓ¡·½Ê½
-		var result = control.DealFilePrint("");    //µ¯³ö´òÓ¡´°¿Ú½øĞĞ´òÓ¡
+        //control.DealFilePrint("false");    //è®¾ç½®é»˜è®¤ä¸ºçº¸å¼ å¤§å°æ‰“å°æ–¹å¼
+		var result = control.DealFilePrint("");    //å¼¹å‡ºæ‰“å°çª—å£è¿›è¡Œæ‰“å°
        }
        else{
-        alert("²»ÄÜ½øĞĞ´òÓ¡£¡");
+        alert("ä¸èƒ½è¿›è¡Œæ‰“å°ï¼");
        } 
     }
-   //ÒÔÖ¸¶¨´òÓ¡»ú´òÓ¡
+   //ä»¥æŒ‡å®šæ‰“å°æœºæ‰“å°
    function PrintOut(){
    var bool=control.IsDealFilePrint();
    if (bool)
    {
-     var result = control.PrintOut("Foxit PDF Printer",1,1,control.GetMaxPage,"");   //ÒÔÖ¸¶¨´òÓ¡»ú´òÓ¡
+     var result = control.PrintOut("Foxit PDF Printer",1,1,control.GetMaxPage,"");   //ä»¥æŒ‡å®šæ‰“å°æœºæ‰“å°
      if (result==-1){
-       alert("´òÓ¡Ê§°Ü");
+       alert("æ‰“å°å¤±è´¥");
      }
      else {
-       alert("´òÓ¡³É¹¦");
+       alert("æ‰“å°æˆåŠŸ");
      }
    }
    else{
-      alert("²»ÄÜ½øĞĞ´òÓ¡£¡");
+      alert("ä¸èƒ½è¿›è¡Œæ‰“å°ï¼");
    }
    }
-   //ÒÔÄ¬ÈÏ´òÓ¡»ú´òÓ¡
+   //ä»¥é»˜è®¤æ‰“å°æœºæ‰“å°
    function PrintOut1(){
    var bool=control.IsDealFilePrint();
    if (bool)
    {
-     var result = control.PrintOut("",1,1,control.GetMaxPage,"");    //ÒÔÄ¬ÈÏ´òÓ¡»ú´òÓ¡
+     var result = control.PrintOut("",1,1,control.GetMaxPage,"");    //ä»¥é»˜è®¤æ‰“å°æœºæ‰“å°
      if (result==-1){
-        alert("´òÓ¡Ê§°Ü");
+        alert("æ‰“å°å¤±è´¥");
      }
      else {
-        alert("´òÓ¡³É¹¦");
+        alert("æ‰“å°æˆåŠŸ");
      }
    }
    else{
-     alert("²»ÄÜ½øĞĞ´òÓ¡£¡");
+     alert("ä¸èƒ½è¿›è¡Œæ‰“å°ï¼");
    }
    }
-   //ÏµÍ³ÉèÖÃ£»
+   //ç³»ç»Ÿè®¾ç½®ï¼›
    function DealAdminOption(){
      control.DealAdminOption();
    }   
 
-   //Ó¡ÕÂ¹ÜÀí£»
+   //å°ç« ç®¡ç†ï¼›
     function DealAdminStamp(){
      control.DealAdminStamp();
     }
 
-   //ÑéÖ¤£»
+   //éªŒè¯ï¼›
     function DealVerifyStamp(){
      var bool=control.IsDealVerifyStamp();
      if(bool){
          control.DealVerifyStamp();
       }
       else{
-        alert("ÑéÖ¤Ê§°Ü£¡");
+        alert("éªŒè¯å¤±è´¥ï¼");
       } 
 
     }
 
-    //¼ÓÔØÎÄ¼ş£»
+    //åŠ è½½æ–‡ä»¶ï¼›
     function LoadPDFDocument(){
-	 //control.SetOutMode(1);      //ÉèÖÃÉú³ÉµÄÎÄ¼şÎªpdfÎÄ¼ş
+	 //control.SetOutMode(1);      //è®¾ç½®ç”Ÿæˆçš„æ–‡ä»¶ä¸ºpdfæ–‡ä»¶
 	 //control.LoadDocument('http://202.109.226.172:8081/epoint-smzwfw-web-test/frame/pages/basic/attach/attachdown.html?attachGuid=be0ee530-e3dd-41c0-b692-9cdf6fc02ced');
      control.LoadPDFDocument('d:/1.pdf');
-	 //control.SetToolButtonVis(-1);    //ÆÁ±Î¹¤¾ßÌõ
-	 //control.ShowToolBar(true);     //´ò¿ª¸£ê¿pdf¹¤¾ßÌõ
-	 //control.SetEditPdf(true);    //ÉèÖÃÊÇ·ñ¿ÉÒÔ±à¼­pdfÎÄ¼ş
-	  //var page=control.GetMaxPage;     //»ñÈ¡pdfÎÄµµÒ³Êı
+	 //control.SetToolButtonVis(-1);    //å±è”½å·¥å…·æ¡
+	 //control.ShowToolBar(true);     //æ‰“å¼€ç¦æ˜•pdfå·¥å…·æ¡
+	 //control.SetEditPdf(true);    //è®¾ç½®æ˜¯å¦å¯ä»¥ç¼–è¾‘pdfæ–‡ä»¶
+	  //var page=control.GetMaxPage;     //è·å–pdfæ–‡æ¡£é¡µæ•°
 	  //alert(control.WordToPDFAndLoad('F:/1.doc','',3));
 	  //control.ImageToPDFAndLoad('d:/1.png','ORIEN=1|CENTER=0|ROTATE=1|ROOM=0|PAPERSIZE=0|NX=291|NY=114',3);
 	  //control.ExcelToPDFAndLoad('http://127.0.0.1:8080/fh/FileDownloadServlet.do?type=2','','ORIEN=1|GLINE=0|HEARDING=0|PAPERSIZE=9',3);
 	  //alert(control.LoadPDFDocument('file:///D:\\1.pdf'));
 	  //control.WpsToPDFAndLoad('d:/1.pdf','',3);
 	  //control.ExcelToPDFAndLoad('d:\\1.xlsx','','ORIEN=1|GLINE=0|HEARDING=0|PAPERSIZE=9',3);
-	  control.PDFCommand(13);      //ÒÔÊÊºÏ¿í·½Ê½Õ¹Ê¾ÎÄ¼ş
-	  //control.SetSealToolVis(true);   //ÉèÖÃÔÚ¹¤¾ßÌõÉÏÏÔÊ¾¸ÇÕÂ°´Å¥
+	  control.PDFCommand(13);      //ä»¥é€‚åˆå®½æ–¹å¼å±•ç¤ºæ–‡ä»¶
+	  //control.SetSealToolVis(true);   //è®¾ç½®åœ¨å·¥å…·æ¡ä¸Šæ˜¾ç¤ºç›–ç« æŒ‰é’®
       //control.SetSealToolButtonVis(3);
 	  //control.WordToPDFAndLoad('ftp://soft:soft@192.168.5.50/1.doc','',3);
     }
 
-    //¼ÓÔØEDCÎÄ¼ş£»
+    //åŠ è½½EDCæ–‡ä»¶ï¼›
     function LoadEDCDocument(){
 	  control.LoadEDCDocument("c:/test.edc");
 	  //control.LoadEDCDocument("http://120.35.29.217/CatalogManage/GetLicenseFile.ashx?typeID=6E90A7855220215FE040007F010043A8&fileID=350105154591085&selCode=NY4R3PJA8");
-	  control.PDFCommand(13);    //ÒÔÊÊºÏ¸ß·½Ê½Õ¹Ê¾ÎÄ¼ş
+	  control.PDFCommand(13);    //ä»¥é€‚åˆé«˜æ–¹å¼å±•ç¤ºæ–‡ä»¶
 	}
 
-    //ÕªÂ¼£»
+    //æ‘˜å½•ï¼›
     function DealCento(){
       control.DealCento();
     }
 
-    //¹Ø±ÕÎÄ¼ş£»
+    //å…³é—­æ–‡ä»¶ï¼›
     function CloseDocument(){
 	 control.CloseDocument();
 	}
 
-    //´ò¿ªÎÄ¼ş£»
+    //æ‰“å¼€æ–‡ä»¶ï¼›
     function OpenFileDlg(){
-	 //control.SetToolButtonVis(-1);    //ÆÁ±Î¹¤¾ßÌõ
-	 //control.SetOutMode(1);      //ÉèÖÃÉú³ÉµÄÎÄ¼şÎªpdfÎÄ¼ş
+	 //control.SetToolButtonVis(-1);    //å±è”½å·¥å…·æ¡
+	 //control.SetOutMode(1);      //è®¾ç½®ç”Ÿæˆçš„æ–‡ä»¶ä¸ºpdfæ–‡ä»¶
 	 var fileurl = control.OpenFileDlgA();
 	 //control.OpenFileDlg();
 	 setTimeout("control.PDFCommand(13)",500);
 	 control.SetPrintable(true);
-	 //control.SetPrintable(true);    //ÉèÖÃÊÇ·ñÔÊĞí´òÓ¡PDFÎÄ¼ş
-	 //control.SetEditPdf(false);    //ÉèÖÃÊÇ·ñ¿ÉÒÔ±à¼­pdfÎÄ¼ş
-	 //control.PDFCommand(13);      //ÒÔÊÊºÏ¿í·½Ê½Õ¹Ê¾ÎÄ¼ş
+	 //control.SetPrintable(true);    //è®¾ç½®æ˜¯å¦å…è®¸æ‰“å°PDFæ–‡ä»¶
+	 //control.SetEditPdf(false);    //è®¾ç½®æ˜¯å¦å¯ä»¥ç¼–è¾‘pdfæ–‡ä»¶
+	 //control.PDFCommand(13);      //ä»¥é€‚åˆå®½æ–¹å¼å±•ç¤ºæ–‡ä»¶
     }  
 
-   //×Ô¶¯Åú×¢
+   //è‡ªåŠ¨æ‰¹æ³¨
    function DealHandSignA(){
      var bool=control.IsDealStamp();
      if(bool){
-	 control.SelfMotionPostil('TEXT=ÎÒÒª²âÊÔµÄÎÄ¼ş&AREAPAGE=1|200|200&FACENAME=ËÎÌå&SIZE=16&COLOR=0;0;0');
+	 control.SelfMotionPostil('TEXT=æˆ‘è¦æµ‹è¯•çš„æ–‡ä»¶&AREAPAGE=1|200|200&FACENAME=å®‹ä½“&SIZE=16&COLOR=0;0;0');
      }
      else{
-       alert("²»ÄÜ½øĞĞÇ©Åú,ÇëÏÈµ¼ÈëPDFÎÄ¼ş£¡");
+       alert("ä¸èƒ½è¿›è¡Œç­¾æ‰¹,è¯·å…ˆå¯¼å…¥PDFæ–‡ä»¶ï¼");
      }
    }
 
-   //Êä³öEDCÎÄ¼ş²¢Êä³öB64±àÂë£»
+   //è¾“å‡ºEDCæ–‡ä»¶å¹¶è¾“å‡ºB64ç¼–ç ï¼›
    function DealFileExport(){ 
-	 //control.PutIsPrint(true);    //ÉèÖÃÊä³öµÄedcÎÄ¼şÊÇ·ñÄÜ´òÓ¡£¬trueÎª¿É´òÓ¡
-	 //control.PutIsExportBlack(true);    //ÉèÖÃÊä³öµÄedcÎÄ¼şÊÇ·ñÄÜ³­ËÍ£¬trueÎª¿É³­ËÍ
-	 //control.PutIsCento(true);    //ÉèÖÃÊä³öµÄedcÎÄ¼şÊÇ·ñÄÜÕªÂ¼£¬trueÎª¿ÉÕªÂ¼
-	 control.SetDocSignType(1);    //edcÎÄ¼şÊä³ö·½Ê½,0Ä¬ÈÏ,1Ç©Ãû,2¼ÓÃÜ
-	 control.DelSaveDlg(1);        //±£´æÊ±²»µ¯³ö±£´æ³É¹¦µÄÌáÊ¾
+	 //control.PutIsPrint(true);    //è®¾ç½®è¾“å‡ºçš„edcæ–‡ä»¶æ˜¯å¦èƒ½æ‰“å°ï¼Œtrueä¸ºå¯æ‰“å°
+	 //control.PutIsExportBlack(true);    //è®¾ç½®è¾“å‡ºçš„edcæ–‡ä»¶æ˜¯å¦èƒ½æŠ„é€ï¼Œtrueä¸ºå¯æŠ„é€
+	 //control.PutIsCento(true);    //è®¾ç½®è¾“å‡ºçš„edcæ–‡ä»¶æ˜¯å¦èƒ½æ‘˜å½•ï¼Œtrueä¸ºå¯æ‘˜å½•
+	 control.SetDocSignType(1);    //edcæ–‡ä»¶è¾“å‡ºæ–¹å¼,0é»˜è®¤,1ç­¾å,2åŠ å¯†
+	 control.DelSaveDlg(1);        //ä¿å­˜æ—¶ä¸å¼¹å‡ºä¿å­˜æˆåŠŸçš„æç¤º
 	 var bool=control.IsDealUnStamp();
      if(bool){   
-	  control.DealFileExport("c:/123.edc");       //ÎÄ¼ş±£´æÔÚÁÙÊ±Ä¿Â¼ÖĞ£¬²¢Ëæ»úÃüÃû
-	  document.OAForm.bm.value = control.GetEDCB64();      //¶ÔÎÄ¼ş½øĞĞb64±àÂë
+	  control.DealFileExport("c:/123.edc");       //æ–‡ä»¶ä¿å­˜åœ¨ä¸´æ—¶ç›®å½•ä¸­ï¼Œå¹¶éšæœºå‘½å
+	  document.OAForm.bm.value = control.GetEDCB64();      //å¯¹æ–‡ä»¶è¿›è¡Œb64ç¼–ç 
 	 }
      else{
-      alert("ÇëÏÈ¸ÇÕÂºó£¬ÔÚµãÊä³ö£¡");
+      alert("è¯·å…ˆç›–ç« åï¼Œåœ¨ç‚¹è¾“å‡ºï¼");
      }
    }
 
    function SendFile(){
-     //FormPost.ClearAllFiles(true);     //Çå³ı±íµ¥Êı¾İ£¬ÎªtrueÊ±»áÉ¾³ı±¾µØÎÄ¼ş
-     OAForm.submit();                    //ÉÏ´«ÎÄ¼ş
+     //FormPost.ClearAllFiles(true);     //æ¸…é™¤è¡¨å•æ•°æ®ï¼Œä¸ºtrueæ—¶ä¼šåˆ é™¤æœ¬åœ°æ–‡ä»¶
+     OAForm.submit();                    //ä¸Šä¼ æ–‡ä»¶
 	}
 
    function GetPDF(){
 	  var bool = control.IsDealSavePdf();
 	  if(bool){
-	  var i = control.DealSavePdf("C:/test.pdf");    //±£´æPDFÎÄ¼ş
+	  var i = control.DealSavePdf("C:/test.pdf");    //ä¿å­˜PDFæ–‡ä»¶
 	  alert(i);
      }
      else{
-       alert("²»ÄÜÌáÈ¡PDFÎÄ¼ş£¡");
+       alert("ä¸èƒ½æå–PDFæ–‡ä»¶ï¼");
      }
    }
 
    function SealNO(){
-    var a = control.GetAllCount(0);        //»ñÈ¡edcÎÄ¼şÖĞÇ©ÕÂ×Ü¸öÊı£¨¸ÇÕÂ+Ç©Åú£©
-	var b = control.GetSealCount(0);       //»ñÈ¡edcÎÄ¼şÖĞ¸ÇÕÂ×Ü¸öÊı
-	var c = control.GetHandSignCount(0);   //»ñÈ¡edcÎÄ¼şÖĞÇ©Åú×Ü¸öÊı
-	alert('Ç©ÕÂ×ÜÊıÎª'+a+'¸ö¡£'+'\n'+'µç×ÓÓ¡ÕÂ×ÜÊıÎª'+b+'¸ö¡£'+'\n'+'Ç©Åú×ÜÊıÎª'+c+'¸ö¡£');
+    var a = control.GetAllCount(0);        //è·å–edcæ–‡ä»¶ä¸­ç­¾ç« æ€»ä¸ªæ•°ï¼ˆç›–ç« +ç­¾æ‰¹ï¼‰
+	var b = control.GetSealCount(0);       //è·å–edcæ–‡ä»¶ä¸­ç›–ç« æ€»ä¸ªæ•°
+	var c = control.GetHandSignCount(0);   //è·å–edcæ–‡ä»¶ä¸­ç­¾æ‰¹æ€»ä¸ªæ•°
+	alert('ç­¾ç« æ€»æ•°ä¸º'+a+'ä¸ªã€‚'+'\n'+'ç”µå­å°ç« æ€»æ•°ä¸º'+b+'ä¸ªã€‚'+'\n'+'ç­¾æ‰¹æ€»æ•°ä¸º'+c+'ä¸ªã€‚');
 	} 
 
 
    function GoToPagePos(){
-	 control.GoToPdfPos(zbd);    //Ìø×ªÖÁÎÄ¼ş×ø±êµãÎ»ÖÃ£¬²ÎÊıÎªnPage,X,Y
+	 control.GoToPdfPos(zbd);    //è·³è½¬è‡³æ–‡ä»¶åæ ‡ç‚¹ä½ç½®ï¼Œå‚æ•°ä¸ºnPage,X,Y
    }
 
    function GetCurPDFLeftTopPos(){
-	 zbd = control.GetCurPDFLeftTopPos;    //»ñÈ¡ÖÁÎÄµµ×óÉÏ½Ç×ø±êÎ»ÖÃ
+	 zbd = control.GetCurPDFLeftTopPos;    //è·å–è‡³æ–‡æ¡£å·¦ä¸Šè§’åæ ‡ä½ç½®
 	 alert(zbd);
    }
 
@@ -281,37 +281,37 @@
 
 <OBJECT width="100%" height="500" id="control" classid="clsid:5CAC43BD-DE74-49F9-9FD6-DDA6B5A15A9C" codebase="KTSEDocAxEx.ocx"></OBJECT>
 <OBJECT id="FormPost" classid="clsid:019A29FA-4B5D-4FE8-82D4-51C554285457" name="FormPost"></OBJECT>
-<br>×ø±ê£º<input name="zb" type="text" size="70"><br>
+<br>åæ ‡ï¼š<input name="zb" type="text" size="70"><br>
 <body>
 <form id="OAForm" name="uptest" action="doupload.jsp" method="post" encType="multipart/form-data">
 		<?IMPORT NAMESPACE = CUSTOM IMPLEMENTATION = "#FormPost" />
 		<CUSTOM:KTSEDocAxExForm id="KTSEDocAxExForm"></CUSTOM:KTSEDocAxExForm>
-B64±àÂë:<textarea name="bm" rows="5" cols="150" ></textarea><br>
-<input type="button" value="´ò¿ªÎÄ¼ş" onclick="OpenFileDlg()"> 
-<input type="button" value="¼ÓÔØÎÄ¼ş" onclick="LoadPDFDocument()">
-<input type="button" value="¼ÓÔØEDCÎÄ¼ş" onclick="LoadEDCDocument()">
-<input type="button" value="¹Ø±ÕÎÄ¼ş" onclick="CloseDocument()">
-<input type="button" value="Êä³ö" onclick="DealFileExport()">
-<input type="button" value="´òÓ¡" onclick="DealFilePrint()">
-<input type="button" value="Ö¸¶¨´òÓ¡»ú" onclick="PrintOut()">
-<input type="button" value="Ä¬ÈÏ´òÓ¡»ú" onclick="PrintOut1()">
-<input type="button" value="³­ËÍ" onclick="DealFileExportBlack()">
-<input type="button" value="ÕªÂ¼" onclick="DealCento()">
-<input type="button" value="¸ÇÕÂ" onclick="DealStamp()"> 
-<input type="button" value="Ö¸¶¨Î»ÖÃ¸ÇÕÂ" onclick="DealStamp2()">
-<input type="button" value="¶à×ø±êµã¸ÇÕÂ" onclick="DealStamp3()">
-<input type="button" value="ÅúÁ¿¸ÇÕÂ" onclick="DealLotStamp()">
-<input type="button" value="Ç©Åú" onclick="DealHandSign()">
-<input type="button" value="×Ô¶¯Ç©Åú" onclick="DealHandSignA()">
-<input type="button" value="³·Ïú" onclick="DealUnStamp()">
-<input type="button" value="ÑéÖ¤" onclick="DealVerifyStamp()">
-<input type="button" value="ÏµÍ³ÉèÖÃ" onclick="DealAdminOption()">
-<input type="button" value="Ó¡ÕÂ¹ÜÀí" onclick="DealAdminStamp()">
-<input type="button" value="ÉÏ´«" onclick="SendFile()">
-<input type="button" value="»ñÈ¡Ó¡ÕÂ¸öÊı" onclick="SealNO()">
-<input type="button" value="ÌáÈ¡PDFÎÄ¼ş" onclick="GetPDF()">
-<input type="button" value="»ñÈ¡×óÉÏ½Ç×ø±êµãÎ»ÖÃ" onclick="GetCurPDFLeftTopPos()">
-<input type="button" value="Ìø×ªÖÁ×ø±êµãÎ»ÖÃ" onclick="GoToPagePos()">
+B64ç¼–ç :<textarea name="bm" rows="5" cols="150" ></textarea><br>
+<input type="button" value="æ‰“å¼€æ–‡ä»¶" onclick="OpenFileDlg()"> 
+<input type="button" value="åŠ è½½æ–‡ä»¶" onclick="LoadPDFDocument()">
+<input type="button" value="åŠ è½½EDCæ–‡ä»¶" onclick="LoadEDCDocument()">
+<input type="button" value="å…³é—­æ–‡ä»¶" onclick="CloseDocument()">
+<input type="button" value="è¾“å‡º" onclick="DealFileExport()">
+<input type="button" value="æ‰“å°" onclick="DealFilePrint()">
+<input type="button" value="æŒ‡å®šæ‰“å°æœº" onclick="PrintOut()">
+<input type="button" value="é»˜è®¤æ‰“å°æœº" onclick="PrintOut1()">
+<input type="button" value="æŠ„é€" onclick="DealFileExportBlack()">
+<input type="button" value="æ‘˜å½•" onclick="DealCento()">
+<input type="button" value="ç›–ç« " onclick="DealStamp()"> 
+<input type="button" value="æŒ‡å®šä½ç½®ç›–ç« " onclick="DealStamp2()">
+<input type="button" value="å¤šåæ ‡ç‚¹ç›–ç« " onclick="DealStamp3()">
+<input type="button" value="æ‰¹é‡ç›–ç« " onclick="DealLotStamp()">
+<input type="button" value="ç­¾æ‰¹" onclick="DealHandSign()">
+<input type="button" value="è‡ªåŠ¨ç­¾æ‰¹" onclick="DealHandSignA()">
+<input type="button" value="æ’¤é”€" onclick="DealUnStamp()">
+<input type="button" value="éªŒè¯" onclick="DealVerifyStamp()">
+<input type="button" value="ç³»ç»Ÿè®¾ç½®" onclick="DealAdminOption()">
+<input type="button" value="å°ç« ç®¡ç†" onclick="DealAdminStamp()">
+<input type="button" value="ä¸Šä¼ " onclick="SendFile()">
+<input type="button" value="è·å–å°ç« ä¸ªæ•°" onclick="SealNO()">
+<input type="button" value="æå–PDFæ–‡ä»¶" onclick="GetPDF()">
+<input type="button" value="è·å–å·¦ä¸Šè§’åæ ‡ç‚¹ä½ç½®" onclick="GetCurPDFLeftTopPos()">
+<input type="button" value="è·³è½¬è‡³åæ ‡ç‚¹ä½ç½®" onclick="GoToPagePos()">
 </form>
 </body>
 </html>
