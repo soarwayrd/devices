@@ -1,6 +1,6 @@
 >一些alter或者console代码，可根据自己的实际情况删减。新建一个空白的html文件，将一下代码拷贝到文件内，即可运行。前提需安装好对应的驱动或服务。
 
-[点击下载本页Demo](./index_sign_by_click.txt)
+[点击下载本页Demo](./index_sign_by_click.txt), 请自行修改txt后缀为html
 
 ```html
 <!-- html标签 -->
