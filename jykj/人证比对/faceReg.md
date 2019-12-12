@@ -97,6 +97,7 @@
 ```
 
 ```html
+ <!-- 这行代码需要拷贝 放在页面的body里 -->
  <script language="javascript" for="GWQ" event="OnAfterGWQ_StartFace(ErrorCode,JsonData)" type="text/javascript">
      OnAfterGWQ_StartFace(ErrorCode, JsonData);
  </script>

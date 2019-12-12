@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>人证比对</title>
+
+    <!-- 这行代码需要拷贝 放在页面的head里 -->
+    <object classid="clsid:96BB8ADA-D348-4414-8892-DC79C8818841" id="GWQ" width="0" height="0"></object>
+</head>
+
+<body>
+    <!-- html标签 -->
+    <input type="button" value="人证比对" onclick="GetFaceRecognition()" />
+
+    <script>
+        // 人证比对
+        function GetFaceRecognition() {
+            if (getBrowserName() == "IE") {
+                var result = GWQ.DoGWQ_StartFace();
+                OnAfterCall(result);
+            }
+            else {
+                let socket = CreateSocket(function (event) {
+                    // let data = JSON.parse(event.data)
+                    console.log(JSON.parse(event.data))
+                });
+                let faceRegReq = {};
+                faceRegReq.type = 5;
+                socket.onopen = function () {
+                    socket.send(JSON.stringify(faceRegReq));
+                }
+            }
+        }
+
+        // 人证比对 回调
+        function OnAfterGWQ_StartFace(ErrorCode, JsonData) {
+            if (ErrorCode == 0) {
+                let obj = JSON.parse(JsonData);
+                alert(JsonData);
+                if (obj.passFlag == true)
+                    alert("比对通过");
+                else
+                    alert("比对失败");
+            }
+            else {
+                alert("失败，返回错误码为" + ErrorCode);
+            }
+        }
+
+        // 按需拷贝,将Base64保存到指定路径，生产环境上没什么用
+        function Base64ToFile(Base64, Filename) {
+            if (getBrowserName() == "IE") {
+                GWQ.Base64ToFile(Base64, Filename);
+            }
+            else {
+                let socket = CreateSocket(function (event) {
+                    console.log(event)
+                });
+                let file = {};
+                file.type = 16;
+                file.Base64 = Base64;
+                file.Filename = Filename;
+                socket.onopen = function () {
+                    socket.send(JSON.stringify(file));
+                }
+            }
+        }
+
+        // 必须拷贝,且一个页面只需拷贝一次
+        function getBrowserName() {
+            let userAgent = navigator.userAgent;
+            if (userAgent.indexOf("Opera") > -1)
+                return "Opera"
+            else if (userAgent.indexOf("Firefox") > -1)
+                return "FF";
+            else if (userAgent.indexOf("Edge") > -1)
+                return "Edge";
+            else if (userAgent.indexOf("Chrome") > -1)
+                return "Chrome";
+            else if (userAgent.indexOf("Safari") > -1)
+                return "Safari";
+            else
+                return "IE";
+        }
+
+        // 必须拷贝,且一个页面只需拷贝一次
+        function CreateSocket(fun) {
+            if (getBrowserName() != "IE") {
+                var webSocket = new WebSocket('ws://localhost:1919');
+                // webSocket.onopen = function (event) { console.log("连接成功") };
+                webSocket.onerror = function (event) { alert("连接错误"); };
+                webSocket.onclose = function (event) { alert("服务不存在或者被关闭"); };
+                webSocket.onmessage = function (event) {
+                    if (fun && typeof fun == 'function')
+                        fun(event)
+                };
+                return webSocket;
+            }
+        }
+    </script>
+    <script language="javascript" for="GWQ" event="OnAfterGWQ_StartFace(ErrorCode,JsonData)" type="text/javascript">
+        OnAfterGWQ_StartFace(ErrorCode, JsonData);
+    </script>
+</body>
+
+</html>

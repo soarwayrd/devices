@@ -10,7 +10,17 @@
 
 > 以上链接地址请通过"右键"，在新的tab页打开下载
 
+> 凯特的Ocx如果调用失败的话，可以用管理员权限打开命令行工具，通过regsvr32注册ocx控件即可。一般来说，客户机安装了凯特驱动后就不用手动注册控件了。
+
+```html
+<!-- 必须拷贝 -->
+<OBJECT id="EdcProxy" classid="clsid:831F5638-D9CD-4A7E-BB16-21606AEA7AE7" name="EdcProxy"></OBJECT>
+<OBJECT width="1000" height="500" id="control" classid="clsid:5CAC43BD-DE74-49F9-9FD6-DDA6B5A15A9C"
+        codebase="KTSEDocAxEx.ocx"></OBJECT>
+```
+
 ```javascript
+<script>
  // 必须拷贝，获取凯特Ocx控件生成的Edc base64串
  function ktGetEdcBase64() {
      //edc文件输出方式,0默认,1签名,2加密
@@ -98,4 +108,5 @@
          return webSocket;
      }
  }
+ </script>
 ```
