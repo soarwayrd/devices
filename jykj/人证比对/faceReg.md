@@ -13,6 +13,7 @@
 ```
 
 ```html
+ <!-- 这行代码需要拷贝 放在页面的body里 -->
 <script>
  // 人证比对
  function GetFaceRecognition() {

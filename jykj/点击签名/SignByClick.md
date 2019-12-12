@@ -15,6 +15,7 @@
 ```
 
 ```html
+ <!-- 这行代码需要拷贝 放在页面的body里 -->
 <script>
     // 按需拷贝,将Base64保存到指定路径，生产环境上没什么用
     function Base64ToFile(Base64, Filename) {
@@ -133,6 +134,7 @@
 ```
 
 ```html
+ <!-- 这行代码需要拷贝 放在页面的body里 -->
  <script language="javascript" for="GWQ" event="OnAfterGWQ_StartSign(ErrorCode,SignPdfBase64,SignNameBase64,FingerPrintBase64,XML)" type="text/javascript">
      OnAfterGWQ_StartSign(ErrorCode, SignPdfBase64, SignNameBase64, FingerPrintBase64, XML);
  </script>
