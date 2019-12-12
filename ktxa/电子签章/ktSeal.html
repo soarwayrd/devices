@@ -6,18 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>电子签章 for Chrome</title>
+    <!-- 必须拷贝 -->
+    <OBJECT id="EdcProxy" classid="clsid:831F5638-D9CD-4A7E-BB16-21606AEA7AE7" name="EdcProxy"></OBJECT>
 </head>
 
 <body>
     <p>输入pdf路径，支持本地及url路径</p>
+    <p>注意，IE和Chrome的获取edc base64串的步骤略有不同</p>
+    <p>IE的ocx控件需要分3个步骤完成，1、载入文件，2、进行盖章，3、拿到Base64</p>
+    <p>Chrome走WebSocket，只需调出盖章窗口，剩余的盖章，及拿Base64都在凯特封装的窗体内进行</p>
     <br>
+
+    <p>=======================Chrome使用以下Demo=============================</p>
+
     <input type="text" name="filePath" value="D:\\1.pdf">
+    <button onclick="ktSeal('D:\\1.pdf')">电子签章</button>
+
+    <p>=======================IE使用以下Demo=============================</p>
+
+    <OBJECT width="1000" height="500" id="control" classid="clsid:5CAC43BD-DE74-49F9-9FD6-DDA6B5A15A9C"
+        codebase="KTSEDocAxEx.ocx"></OBJECT>
     <br>
-    <button onclick="ktSeal('D:\\1.pdf')">电子签章 for Chrome</button>
+    <button onclick="ktLoadFile('D:\\1.pdf')">载入文档</button>
+    <button onclick="ktSeal('D:\\1.pdf')">电子签章</button>
+    <button onclick="ktGetEdcBase64()">获取Base64</button>
+
+
     <script>
+        // 必须拷贝
+        function ktGetEdcBase64() {
+            //edc文件输出方式,0默认,1签名,2加密
+            control.SetDocSignType(1);
+            //保存时不弹出保存成功的提示
+            control.DelSaveDlg(1);
+            if (control.IsDealUnStamp()) {
+                //文件保存在临时目录中，并随机命名
+                // control.DealFileExport("D:\123.edc");       
+                //对文件进行b64编码
+                console.log(control.GetEDCB64());
+            }
+            else {
+                alert("请先盖章后，在点输出！");
+            }
+        }
+
+        // 必须拷贝
+        function ktLoadFile(filePath) {
+            control.LoadPDFDocument(filePath);
+        }
+
         // 必须拷贝,且一个页面只需拷贝一次
         function ktSeal(filePath) {
-            if (getBrowserName() != IE) {
+            if (getBrowserName() != "IE") {
                 let socket = createSocket(function (event) {
                     var ktData = JSON.parse(event.data);
                     console.log(ktData);
@@ -44,7 +84,12 @@
                 }
             }
             else {
-
+                if (control.IsDealStamp()) {
+                    control.DealStamp();
+                }
+                else {
+                    alert("不能进行盖章,请先导入PDF文件！");
+                }
             }
         }
 

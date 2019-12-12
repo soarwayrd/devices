@@ -1,0 +1,167 @@
+<html>
+<head>
+<title>Web Socket签章</title>
+<Script type="text/javascript">
+
+
+var pluginRequestID = 0;
+
+/**
+function dealWithResponseMessage(respMessage)
+{
+//	console.log("dealWithResponseMessage");
+//	console.log("respMessage = " + respMessage);
+	listform.textOut.value = respMessage;
+
+	// 响应消息
+	var resp = JSON.parse(respMessage);
+	var str = resp.PluginResponse.split(",");
+	if(str[0].split("=")[1] > 0){
+		n = str[1].split("=")[1];
+		temp[str[2].split("=")[1]-1] = resp.PluginResponseValue;
+	}
+
+}
+**/
+	var base64File = "";
+	var socket = null;
+	function connect() {
+		if (socket != null) {
+			alert("已连接！");
+			return true;
+		}
+		
+		var host = "ws://127.0.0.1:31213/";
+		socket = new WebSocket(host);
+		try {
+			socket.onopen = function(msg) {
+				//alert("连接成功！");
+				//onSeal();
+			};
+
+			socket.onmessage = function(msg) {
+				if (typeof msg.data == "string") {
+					//dealWithResponseMessage(msg.data);
+					var resp = JSON.parse(msg.data);
+					var responseValue = resp.PluginResponseValue;
+					var pluginResponse = resp.PluginResponse;
+					console.log(pluginResponse);
+					var str = pluginResponse.split(",");
+					var AllSignaCount = parseInt(str[3].split("=")[1]);
+					var SealCount = parseInt(str[4].split("=")[1]);
+					var HandSignCount = parseInt(str[5].split("=")[1]);
+					var MaxPage = parseInt(str[6].split("=")[1]);
+					var Versions = parseInt(str[7].split("=")[1]);
+					alert("总个数："+AllSignaCount+"。其中印章个数："+SealCount+"，签批个数："+HandSignCount+"，总页数："+MaxPage+"，版本号："+Versions);
+					if (str[0].split("=")[1] > 0) {
+						var total = parseInt(str[1].split("=")[1]);
+						var cur = parseInt(str[2].split("=")[1]);
+							//alert("total="+total);
+							//alert("cur="+cur);
+							//alert("responseValue="+responseValue);
+						if (cur <= total) {
+							base64File += responseValue;
+						}
+						if (cur == total) {
+							listform.textOut.value=base64File;
+						}
+					}
+				} else {
+					alert("非文本消息");
+				}
+			};
+
+			socket.onclose = function(msg) {
+				alert("socket closed!");
+			};
+
+			socket.onerror = function(msg) {
+				alert("socket error!");
+			};
+		} catch (ex) {
+			alert(ex.message);
+			return false;
+		}
+
+		return true;
+	}
+
+	window.onload = function() {
+		connect();
+
+	}
+
+	window.onbeforeunload = function() {
+		if (socket == null)
+			return;
+
+		try {
+			socket.close();
+			socket = null;
+		} catch (ex) {
+		}
+	};
+
+	//手动盖章
+	function onSeal() {
+
+		//console.log("onSeal in testktsedocws.html");
+		base64File = '';
+		n = 0;
+		temp = [];
+		listform.textOut.value='';
+
+		pluginRequestID++;
+		var req = {
+			"PluginRequestID" : pluginRequestID,
+			"PluginRequest" : "Seal",
+			"InFile" : "D:/1.pdf",
+			"OutFile" : "000",
+			"PDFCommand" : 13,
+			"SetEditPdf" : false,
+			"SetSealToolVis" : false,
+			"SetToolButtonVis" : -2,
+			"SetDocSignType" : 1,
+			"GetEDCB64" : true,
+			"AutoCloseDocument" : true,
+			"PutIsOpenVerifyCrl" : false,
+			"PutIsPrint" : true,
+			"PutIsExportBlack" : true,			
+			//"PrintOut" : "type=1|sPrinter=Foxit PDF Printer|lCount=1|lFromPage=1|lToPage=maxPage",
+			//"docType" : "word",
+			//"nFType" : 3,
+			"PutIsCento" : true
+		};
+		socket.send(JSON.stringify(req));
+	}
+
+</Script>
+</head>
+<BODY bgcolor="#ffffff">
+<table width="720" border="0" cellspacing="0" cellpadding="0" align="center">
+  <form name="listform" method="post" action="test.jsp">
+    <tr> 
+      <td height="30" valign="middle" width="220">PDF文件路径</td>
+      <td height="23" width="500" align="left"> 
+        <textarea name="textInFile"  cols="90" rows="1">D:\1.pdf</textarea>
+        <input type="hidden" name="ff" id="ff" />
+      </td>
+    </tr>
+    <tr> 
+      <td height="30" valign="middle" width="120">输出</td>
+      <td height="23" width="600" align="left"> 
+        <textarea name="textOut"  cols="90" rows="10"></textarea>
+      </td>
+    </tr>
+     <tr>
+      <td height="30" valign="middle" width="120">&nbsp;</td>
+      <td height="23" width="600" align="left"> 
+		<div id="response_div_id"></div>
+        <input type="button" name="Button1" value="手动盖章" class="hand" onClick="onSeal()">
+      </td>
+    </tr>
+  </form>
+</table>
+</BODY>
+</html>
+
