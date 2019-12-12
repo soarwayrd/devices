@@ -1,10 +1,10 @@
-[下载本章节示例](../ktSeal.html)
+[下载本章节示例](../手动盖章/ktSeal.html)
 
-[下载手动签章for_Chrome](./手动盖章(websocket).html)
+[下载手动签章for_Chrome](../手动盖章/手动盖章(websocket).html)
 
-[下载手动签章for_IE](./手动盖章(ocx).html)
+[下载手动签章for_IE](../手动盖章/手动盖章(ocx).html)
 
-[下载凯特信安手工盖章开发文档](./SecSeal签章控件集成开发手册.doc)
+[下载凯特信安手工盖章开发文档](../手动盖章/SecSeal签章控件集成开发手册.doc)
 
 ```javascript
  // 必须拷贝，获取凯特Ocx控件生成的Edc base64串
