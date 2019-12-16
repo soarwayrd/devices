@@ -6,11 +6,9 @@
    
    > regsvr32 PDF_AX_Pro.ocx
 
-2. 界面上的每一个选项，在对应插PluginConfig下的xml配置文件均能找到与之对应的配置项。可直接修改xml配置后启动程序；也可在程序的界面内修改后保存的xml文件内。
-![程序界面](../Edc转Pdf/imgs/app_screen.png)
+2. 界面上的每一个选项，在对应插PluginConfig下的xml配置文件均能找到与之对应的配置项。可直接修改xml配置后启动程序；也可在程序的界面内修改后保存的xml文件内。![程序界面](../Edc转Pdf/imgs/app_screen.png)
 
 3. 如果后期有需要修改该Edc转Pdf的程序，需要注意，开发及编译时要选择x86平台。且只支持单线程，不支持多线程并发。这是是由凯特信安导致的，他们的开发包不支持x64及多线程。
 
-4. Kaite文件夹内的dll及ocx都由凯特信安提供，涉及的内容更改应联系凯特信安。
-![凯特信安Sdk](../Edc转Pdf/imgs/kaite_folder.png)
+4. Kaite文件夹内的dll及ocx都由凯特信安提供，涉及的内容更改应联系凯特信安。![凯特信安Sdk](../Edc转Pdf/imgs/kaite_folder.png)
 
