@@ -21,7 +21,9 @@
                 OnAfterCall(result);
             }
             else {
-                let socket = CreateSocket();
+                let socket = CreateSocket(function (event) {
+                    console.log(event);
+                });
                 let idCardReq = {};
                 idCardReq.type = 4;
                 socket.onopen = function () {
