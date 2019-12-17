@@ -22,7 +22,7 @@
             }
             else {
                 let socket = CreateSocket(function (event) {
-                    console.log(event);
+                    console.log(event.data);
                 });
                 let idCardReq = {};
                 idCardReq.type = 4;
