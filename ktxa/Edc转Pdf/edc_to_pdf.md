@@ -1,4 +1,4 @@
-[Edc转Pdf程序下载地址](../Edc转Pdf/Soarway.Runner.Core_v1.0.0.zip)
+[Edc转Pdf程序下载地址](ftp://192.168.0.225/download/Device/Soarway.Runner.Core_v1.0.0.zip)
 
 > 程序运行依赖于 .Net Framework 4.0环境
 
